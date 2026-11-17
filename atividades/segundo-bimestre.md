@@ -1,53 +1,103 @@
-# Segundo Bimestre
+# 2º bimestre — Projeto 2 — API REST e aplicação Web
 
-10 atividades de 1 ponto. Prazo final: 07/12/2026. IA permitida; compreender e demonstrar a solucao.
+Prazo final: 07/12/2026. Cada atividade vale 1,0 ponto.
 
-## 11 — Criar API
-**Pesquisar:** Spring Boot, REST, HTTP.
+## 11 — Criar aplicação HTTP
 
-**Desenvolver e demonstrar:** Responder a GET simples.
+**Pesquisar:** Spring Boot, REST.
 
-## 12 — Integrar banco
+**Desenvolver:** Implementar GET /api/v1/health retornando HTTP 200 e JSON {"status":"UP"}.
+
+**Comprovar:** Executar localmente e verificar status e corpo.
+
+**Verificação prevista:** Teste HTTP automatizável.
+
+## 12 — Integrar API ao banco
+
 **Pesquisar:** JPA, JSON.
 
-**Desenvolver e demonstrar:** Retornar registro real em JSON.
+**Desenvolver:** Conectar ao mesmo banco do projeto 1 e implementar GET /api/v1/events/{id}.
 
-## 13 — CRUD
-**Pesquisar:** HTTP, JPA.
+**Comprovar:** Retornar um registro existente em JSON, coerente com consulta SQL.
 
-**Desenvolver e demonstrar:** Consultar, cadastrar, atualizar e excluir logicamente.
+**Verificação prevista:** Teste HTTP e banco.
 
-## 14 — Filtrar
+## 13 — Implementar CRUD
+
+**Pesquisar:** HTTP, REST, JPA.
+
+**Desenvolver:** Implementar GET e POST /api/v1/events, PATCH e DELETE /api/v1/events/{id}; DELETE deve realizar exclusão lógica.
+
+**Comprovar:** Demonstrar criação, leitura, atualização e exclusão lógica; registro excluído não aparece em consultas normais.
+
+**Verificação prevista:** Teste HTTP e banco de teste.
+
+## 14 — Criar filtros combinados
+
 **Pesquisar:** Spring Data JPA, SQL.
 
-**Desenvolver e demonstrar:** Combinar filtros por IP, ataque, severidade e data.
+**Desenvolver:** Permitir filtros combináveis em GET /api/v1/events: attackType, severity, sourceIp, from e to (datas ISO-8601 locais, sem fuso).
 
-## 15 — Paginar e agregar
+**Comprovar:** Testar filtros isolados e combinados e ausência de resultados, comparando com SQL.
+
+**Verificação prevista:** Teste HTTP com dados conhecidos.
+
+## 15 — Paginar e gerar estatísticas
+
 **Pesquisar:** Pageable, SQL.
 
-**Desenvolver e demonstrar:** Paginar e apresentar estatisticas por tipo.
+**Desenvolver:** Usar page (início em zero) e size em GET /api/v1/events; expor GET /api/v1/statistics/attacks para contagem por tipo.
+
+**Comprovar:** Página respeita tamanho solicitado; estatísticas conferem com SQL e ignoram exclusões lógicas.
+
+**Verificação prevista:** Teste HTTP e SQL.
 
 ## 16 — Autenticar e autorizar
+
 **Pesquisar:** Spring Security.
 
-**Desenvolver e demonstrar:** Proteger escrita e demonstrar acessos permitidos e negados.
+**Desenvolver:** Usar autenticação básica HTTP para ambiente local; distinguir perfil de leitura e escrita. Não enviar senhas ao Git.
 
-## 17 — Tratar erros
-**Pesquisar:** Bean Validation, HTTP.
+**Comprovar:** Usuário de leitura consulta, mas não altera; usuário de escrita autorizado altera; sem autenticação recebe 401 em recurso protegido.
 
-**Desenvolver e demonstrar:** Demonstrar 400, 401, 403 e 404.
+**Verificação prevista:** Teste HTTP com credenciais de teste.
 
-## 18 — Executar em paralelo
-**Pesquisar:** Threads, CompletableFuture.
+## 17 — Tratar erros HTTP
 
-**Desenvolver e demonstrar:** Gerar relatorio assincrono e demonstrar conclusao.
+**Pesquisar:** Exceções, HTTP.
 
-## 19 — Internacionalizar e criar interface
-**Pesquisar:** i18n, HTML, JavaScript.
+**Desenvolver:** Padronizar respostas de erro para requisição inválida, falta de autenticação, falta de permissão e recurso inexistente.
 
-**Desenvolver e demonstrar:** Mensagens PT/EN e pagina consumindo API por HTTP.
+**Comprovar:** Demonstrar HTTP 400, 401, 403 e 404, sem stack trace nem dados sensíveis na resposta.
 
-## 20 — Integrar e documentar
-**Pesquisar:** JUnit, Maven, Git, OpenAPI.
+**Verificação prevista:** Teste HTTP.
 
-**Desenvolver e demonstrar:** Demonstrar os dois projetos integrados, testes e instrucoes.
+## 18 — Gerar relatório assíncrono
+
+**Pesquisar:** Threads, CompletableFuture ou ExecutorService.
+
+**Desenvolver:** Executar geração de relatório em tarefa assíncrona e permitir acompanhar conclusão ou falha, sem bloquear a requisição até terminar.
+
+**Comprovar:** Demonstrar execução em outra thread, resultado final e tratamento de falha; documentar como solicitar e consultar.
+
+**Verificação prevista:** Teste de concorrência e demonstração.
+
+## 19 — Internacionalizar e criar página Web
+
+**Pesquisar:** Java i18n, HTML, JavaScript.
+
+**Desenvolver:** Usar recursos de mensagens PT-BR e EN com seleção de idioma; criar página com tabela e filtros que consulte efetivamente a API via HTTP.
+
+**Comprovar:** Demonstrar mudança de mensagens e consulta real pela interface no navegador.
+
+**Verificação prevista:** Teste de idioma e demonstração da interface.
+
+## 20 — Integrar, testar e documentar
+
+**Pesquisar:** Java, Maven, Git, OpenAPI.
+
+**Desenvolver:** Executar os dois projetos integrados; criar testes próprios, instruções reproduzíveis e descrição OpenAPI dos endpoints.
+
+**Comprovar:** Demonstrar importação, consulta e operações web; builds passam e equipe explica seu código.
+
+**Verificação prevista:** Build, integração e validação humana.

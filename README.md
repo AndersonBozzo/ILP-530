@@ -1,50 +1,53 @@
 # FATEC Santos - ILP-530
- 
+
 Linguagem de Programação III - 5º semestre
 
-## Projeto 1 - Importação de dados
-Importação, validação e persistência de arquivos CSV em PostgreSQL.
+**Prazo final: 07/12/2026.** Cada atividade vale 1,0 ponto. Atividades 1–10: primeiro bimestre; 11–20: segundo bimestre.
 
-## Projeto 2 - API REST
-Desenvolvimento de uma aplicação Web integrada ao banco de dados.
+## Materiais
+
+- [Instruções técnicas](INSTRUCOES.md)
+- [Base de dados CSV](dados/cybersecurity_attacks.csv)
+- [Critérios de avaliação](atividades/criterios.md)
+
+## Projeto 1 — CSV para banco de dados
+
+Aplicação Java que importa, valida e persiste registros no PostgreSQL.
+
+[Enunciados detalhados — 1º bimestre](atividades/primeiro-bimestre.md)
+
+| Nº | Atividade | Tecnologia principal |
+|---|---|---|
+| 01 | Preparar o ambiente | Java 25, Maven, Spring Boot |
+| 02 | Modelar AtaqueCibernetico | Java, POO |
+| 03 | Ler o CSV | Java I/O, Apache Commons CSV |
+| 04 | Converter registros em objetos | Classes, construtores, encapsulamento |
+| 05 | Validar dados e tratar exceções | Interfaces, classes abstratas, exceções |
+| 06 | Configurar PostgreSQL e mapear entidades | PostgreSQL, JPA, Hibernate |
+| 07 | Persistir registros | Spring Data JPA, SQL |
+| 08 | Tratar falhas e gerar relatório | Exceções, logs, Java I/O |
+| 09 | Impedir duplicidades | SQL, idempotência |
+| 10 | Testar e documentar | JUnit, Maven, Git |
+
+## Projeto 2 — API REST e aplicação Web
+
+Aplicação Web que consulta, filtra e gerencia os dados do primeiro projeto.
+
+[Enunciados detalhados — 2º bimestre](atividades/segundo-bimestre.md)
+
+| Nº | Atividade | Tecnologia principal |
+|---|---|---|
+| 11 | Criar aplicação HTTP | Spring Boot, REST |
+| 12 | Integrar API ao banco | JPA, JSON |
+| 13 | Implementar CRUD | HTTP, REST, JPA |
+| 14 | Criar filtros combinados | Spring Data JPA, SQL |
+| 15 | Paginar e gerar estatísticas | Pageable, SQL |
+| 16 | Autenticar e autorizar | Spring Security |
+| 17 | Tratar erros HTTP | Exceções, HTTP |
+| 18 | Gerar relatório assíncrono | Threads, CompletableFuture ou ExecutorService |
+| 19 | Internacionalizar e criar página Web | Java i18n, HTML, JavaScript |
+| 20 | Integrar, testar e documentar | Java, Maven, Git, OpenAPI |
 
 ## Avaliação
-- Primeiro bimestre: atividades 01 a 10.
-- Segundo bimestre: atividades 11 a 20.
-- Cada atividade vale 1,0 ponto.
 
-## Prazo final
-07/12/2026.
-
-Descrição:
-
-Projeto 1 — CSV para Banco de Dados
-Primeiro bimestre — Atividades 1 a 10
-Nº	Atividade	 - Tecnologia principal
-1	Preparar o ambiente e criar um projeto que compile e execute - Java 25, Maven, Spring Boot
-2	Analisar as 25 colunas do CSV e modelar a classe AtaqueCibernetico - Java, POO
-3	Ler corretamente o arquivo CSV e contar os registros - Java I/O, Apache Commons CSV
-4	Converter os registros do CSV em objetos Java	Classes, - construtores, encapsulamento
-5	Validar os dados e tratar exceções -	Interfaces, classes abstratas
-6	Configurar PostgreSQL e mapear as classes para tabelas -	PostgreSQL, JPA, Hibernate
-7	Persistir os registros no banco e conferir por SQL -	Spring Data JPA
-8	Tratar falhas de importação e gerar relatório de erros -	Exceptions, logs
-9	Impedir duplicidades ao executar novamente a importação -	SQL, idempotência
-10	Testar o processo completo e documentar sua execução -	JUnit, Maven, Git
-Entrega: aplicação Java que importa o arquivo cybersecurity_attacks.csv, valida os registros e os armazena no PostgreSQL.
-
-
-Projeto 2 — API REST e Aplicação Web
-Segundo bimestre — Atividades 11 a 20
-Nº	Atividade	 - Tecnologia principal
-11	Criar uma aplicação que responda a uma requisição HTTP - Spring Boot, REST
-12	Conectar a API ao banco e retornar um registro real em JSON -	JPA, JSON
-13	Implementar operações CRUD, incluindo exclusão lógica -	HTTP, REST, JPA
-14	Criar consultas com filtros combinados - Spring Data JPA, SQL
-15	Implementar paginação e estatísticas por tipo de ataque -	Pageable, SQL
-16	Implementar autenticação e autorização básica -	Spring Security
-17	Tratar erros com códigos HTTP adequados -	Exceptions, HTTP
-18	Gerar relatórios utilizando processamento assíncrono	Threads, CompletableFuture
-19	Internacionalizar mensagens e criar uma página Web que consuma a API -	Java i18n, HTML, JavaScript
-20	Integrar, testar, documentar e demonstrar os dois projetos -	Java, Maven, Git, OpenAPI
-Entrega: aplicação Web com API REST capaz de consultar, filtrar e gerenciar os dados armazenados pelo primeiro projeto.
+O GitHub Actions existente verifica build e testes, mas não calcula notas. A avaliação das atividades segue os critérios publicados e a validação do docente. IA é permitida; os alunos devem compreender e explicar o código.
